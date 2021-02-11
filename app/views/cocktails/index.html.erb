@@ -1,0 +1,19 @@
+<h1>Cocktail master</h1>
+<h2>Choose among <%= @cocktails.count %> <%= @cocktails.count == 1 ? "cocktail" : "cocktails" %></h2>
+<%= link_to "Add a new cocktail", new_cocktail_path %>
+<div class="container">
+  <div class="row">
+    <% @cocktails.each do |cocktail| %>
+    <div class="col">
+      <div class="card cocktail" style="width: 18rem; height: 20rem;">
+        <div class="card-img">
+          <%= image_tag "cocktails/cocktail-#{(1..45).to_a.sample}.png", alt: "cocktail-illustration" %>
+        </div>
+        <div class="card-body">
+          <%= link_to cocktail.name, cocktail_path(cocktail) %>
+        </div>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>

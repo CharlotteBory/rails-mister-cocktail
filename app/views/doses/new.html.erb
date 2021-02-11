@@ -1,0 +1,3 @@
+<h1>Add an ingredient to the <%= @cocktail.name %> recipe</h1>
+<%= render "form", dose: @dose %>
+<%= link_to "Cancel", cocktail_path(@cocktail) %>
