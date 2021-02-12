@@ -8,7 +8,11 @@
       <%= link_to cocktail_path(cocktail) do %>
         <div class="card cocktail" style="min-width: 200px; max-width: 400px; height: 20rem;">
           <div class="card-img">
-            <%= image_tag "cocktails/cocktail-#{(1..45).to_a.sample}.png", alt: "cocktail-illustration" %>
+            <% if cocktail.photo.attached? %>
+              <%= cl_image_tag cocktail.photo.key %>
+            <% else %>
+              <%= image_tag "cocktails/cocktail-#{(1..45).to_a.sample}.png", alt: "cocktail-illustration" %>
+            <% end %>
           </div>
           <div class="card-body">
             <%= cocktail.name %>

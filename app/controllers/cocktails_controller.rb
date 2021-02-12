@@ -14,7 +14,9 @@ class CocktailsController < ApplicationController
   end
 
   def create
+    raise
     @cocktail = Cocktail.new(cocktail_params)
+    @cocktail.photo.attach(io: File.open('cocktails'), filename: "cocktail-#{(1..45).to_a.sample}.png") unless @coktail.photo.attached?
     if @cocktail.save
       redirect_to cocktail_path(@cocktail)
     else
