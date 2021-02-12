@@ -1,16 +1,16 @@
 <h1>Cocktail master</h1>
 <h2>Choose among <%= @cocktails.count %> <%= @cocktails.count == 1 ? "cocktail" : "cocktails" %></h2>
-<div class="container">
+<div class="container py-3">
   <div class="row">
     <% @cocktails.each do |cocktail| %>
     <div class="col-12 col-sm-6 col-md-4 col-lg-3">
       <%= link_to cocktail_path(cocktail) do %>
         <div class="card cocktail" style="min-width: 200px; max-width: 400px; height: 20rem;">
-          <div class="card-img">
+          <div class="card-img d-flex">
             <% if cocktail.photo.attached? %>
               <%= cl_image_tag cocktail.photo.key %>
             <% else %>
-              <%= image_tag "cocktails/cocktail-#{(1..45).to_a.sample}.png", alt: "cocktail-illustration" %>
+              <%= image_tag "cocktails/cocktail-#{(1..45).to_a.sample}.png", alt: "cocktail-illustration", class: "align-self-end" %>
             <% end %>
           </div>
           <div class="card-body">
