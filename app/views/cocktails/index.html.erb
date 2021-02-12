@@ -5,14 +5,16 @@
   <div class="row">
     <% @cocktails.each do |cocktail| %>
     <div class="col">
-      <div class="card cocktail" style="width: 18rem; height: 20rem;">
-        <div class="card-img">
-          <%= image_tag "cocktails/cocktail-#{(1..45).to_a.sample}.png", alt: "cocktail-illustration" %>
+      <%= link_to cocktail_path(cocktail) do %>
+        <div class="card cocktail" style="width: 18rem; height: 20rem;">
+          <div class="card-img">
+            <%= image_tag "cocktails/cocktail-#{(1..45).to_a.sample}.png", alt: "cocktail-illustration" %>
+          </div>
+          <div class="card-body">
+            <%= cocktail.name %>
+          </div>
         </div>
-        <div class="card-body">
-          <%= link_to cocktail.name, cocktail_path(cocktail) %>
-        </div>
-      </div>
+      <% end %>
     </div>
     <% end %>
   </div>
