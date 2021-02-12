@@ -1,6 +1,5 @@
 <h1>Cocktail master</h1>
 <h2>Choose among <%= @cocktails.count %> <%= @cocktails.count == 1 ? "cocktail" : "cocktails" %></h2>
-<%= link_to "Add a new cocktail", new_cocktail_path %>
 <div class="container">
   <div class="row">
     <% @cocktails.each do |cocktail| %>
