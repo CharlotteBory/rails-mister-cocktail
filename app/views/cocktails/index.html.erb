@@ -4,9 +4,9 @@
 <div class="container">
   <div class="row">
     <% @cocktails.each do |cocktail| %>
-    <div class="col">
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3">
       <%= link_to cocktail_path(cocktail) do %>
-        <div class="card cocktail" style="width: 18rem; height: 20rem;">
+        <div class="card cocktail" style="min-width: 200px; max-width: 400px; height: 20rem;">
           <div class="card-img">
             <%= image_tag "cocktails/cocktail-#{(1..45).to_a.sample}.png", alt: "cocktail-illustration" %>
           </div>
