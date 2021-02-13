@@ -13,19 +13,16 @@
   </div>
 
   <div class="col-lg-4 col-md-5 col-10 mx-auto">
-    <h2>Recipe</h2>
-    <%= link_to "Add ingredient", cocktail_path(@cocktail, anchor: "new_dose") %>
-    <ul>
-      <% @doses.each do |dose| %>
-      <li><%= dose.description %> of <%= dose.ingredient.name %> (<%= link_to "delete", cocktail_dose_path(@cocktail, dose), method: :delete %>)</li>
-      <% end %>
-    </ul>
-
+    <% if @cocktail.ingredients.count > 0 %>
+    <%= render "recipe" %>
+    <% else %>
+    <%= render "doses/new" %>
+    <% end %>
   </div>
 </div>
-<div class="row mt-5 pt-5">
+<div class="row mt-5 pt-5" id="new_dose">
   <div class="col-lg-8 col-10 mx-auto">
-    <%= render "doses/new" %>
+    <%= render "doses/new" if @cocktail.ingredients.count > 0 %>
   </div>
 </div>
 
