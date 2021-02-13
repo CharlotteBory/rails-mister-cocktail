@@ -1,5 +1,5 @@
 <%= simple_form_for cocktail do |f| %>
-<%= f.input :name, label: "Name of the cocktail" %>
+<%= f.input :name, label: "What is the name of your cocktail?", placeholder: "e.g. Mojito", required: false, input_html: { class: 'bar' } %>
 <%= f.input :photo, label: "Upload a photo if you want to. If you don't, we'll choose one for you." , as: :file %>
-<%= f.button :submit, class: "btn btn-outline-primary" %>
+<%= f.button :submit, value: "Write the recipe", class: "btn btn-primary" %>
 <% end %>

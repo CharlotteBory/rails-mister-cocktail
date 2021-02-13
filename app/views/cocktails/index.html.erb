@@ -3,7 +3,7 @@
 <div class="row">
   <div class="col-lg-8 col-10 mx-auto">
     <%= simple_form_for :search, url: root_path, method: "GET" do |f| %>
-      <%= f.input :name, required: false, label: false, input_html: {value: "", placeholder: "e.g. Mojito",  id: 'search-bar' } %>
+      <%= f.input :name, required: false, label: false, input_html: {value: "", placeholder: "Try searching for a cocktail: e.g. Mojito",  id: 'search-bar' } %>
     <% end %>
   </div>
 </div>

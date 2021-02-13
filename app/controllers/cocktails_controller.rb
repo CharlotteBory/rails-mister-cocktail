@@ -15,7 +15,9 @@ class CocktailsController < ApplicationController
 
   def create
     @cocktail = Cocktail.new(cocktail_params)
-    @cocktail.photo.attach(io: File.open('cocktails'), filename: "cocktail-#{(1..45).to_a.sample}.png") unless @cocktail.photo.attached?
+    photo_path = "app/assets/images/cocktails/cocktail-#{(1..45).to_a.sample}.png"
+    photo_name = photo_path.split('cocktails/').last
+    @cocktail.photo.attach(io: File.open(photo_path), filename: photo_name) unless @cocktail.photo.attached?
     if @cocktail.save
       redirect_to cocktail_path(@cocktail)
     else
