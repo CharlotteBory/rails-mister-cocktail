@@ -1,5 +1,12 @@
 <%= simple_form_for [@cocktail, @dose] do |f| %>
 <%= f.input :description, label: "Quantity (ex. 4cl, 6oz, 1 leaf...)" %>
 <%= f.association :ingredient, input_html: { class: 'select2' } %>
-<%= f.button :submit, class: "btn btn-outline-primary" %>
+<div class="row">
+  <div class="col">
+    <%= link_to "Cancel", cocktail_path(@cocktail) %>
+  </div>
+  <div class="col align-right">
+    <%= f.button :submit, class: "btn btn-primary float-right" %>
+  </div>
+</div>
 <% end %>

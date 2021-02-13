@@ -1,15 +1,31 @@
-<h1><%= @cocktail.name %></h1>
-<% if @cocktail.photo.attached? %>
-  <%= cl_image_tag @cocktail.photo.key, height: 300, width: 400, crop: :fill %>
-<% else %>
-  <%= image_tag "cocktails/cocktail-#{(1..45).to_a.sample}.png", alt: "cocktail-illustration" %>
-<% end %>
-<h2>Recipe</h2>
-<%= link_to "Add ingredient", cocktail_path(@cocktail, anchor: "new_dose") %>
-<ul>
-  <% @doses.each do |dose| %>
-  <li><%= dose.description %> of <%= dose.ingredient.name %> (<%= link_to "delete", cocktail_dose_path(@cocktail, dose), method: :delete %>)</li>
-  <% end %>
-</ul>
 
-<%= render "doses/new" %>
+<h1><%= @cocktail.name %></h1>
+
+<div class="row">
+  <div class="col-lg-4 col-md-5 col-10 mx-auto">
+    <div class="cocktail-img">
+      <% if @cocktail.photo.attached? %>
+        <%= cl_image_tag @cocktail.photo.key %>
+      <% else %>
+        <%= image_tag "cocktails/cocktail-#{(1..45).to_a.sample}.png", alt: "cocktail-illustration" %>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="col-lg-4 col-md-5 col-10 mx-auto">
+    <h2>Recipe</h2>
+    <%= link_to "Add ingredient", cocktail_path(@cocktail, anchor: "new_dose") %>
+    <ul>
+      <% @doses.each do |dose| %>
+      <li><%= dose.description %> of <%= dose.ingredient.name %> (<%= link_to "delete", cocktail_dose_path(@cocktail, dose), method: :delete %>)</li>
+      <% end %>
+    </ul>
+
+  </div>
+</div>
+<div class="row mt-5 pt-5">
+  <div class="col-lg-8 col-10 mx-auto">
+    <%= render "doses/new" %>
+  </div>
+</div>
+
