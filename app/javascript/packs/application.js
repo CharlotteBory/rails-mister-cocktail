@@ -20,8 +20,10 @@ import 'bootstrap';
 
 
 import { initSelect2 } from '../plugins/init_select2';
+import { searchCards } from '../components/search';
 
 document.addEventListener('turbolinks:load', () => {
   // Call your JS functions here
   initSelect2();
+  searchCards();
 });
