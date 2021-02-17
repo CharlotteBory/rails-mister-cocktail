@@ -5,11 +5,13 @@ let search = "";
 
 const searchCards = () => {
   const searchBar = document.getElementById('search-bar');
-  searchBar.addEventListener('keyup', (event) => {
-    search = searchBar.value.toLowerCase();
-    filterCards(search);
-    console.log(search);
-  });
+  if (searchBar) {
+    searchBar.addEventListener('keyup', (event) => {
+      search = searchBar.value.toLowerCase();
+      filterCards(search);
+      console.log(search);
+    });
+  };
 };
 
 
