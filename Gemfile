@@ -58,4 +58,4 @@ gem 'rails-controller-testing', group: [ :test ]
 group :test do
   # emulate a headless browser
   gem 'launchy'
-endto
+end
